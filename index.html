@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinTrend</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main class="main-login">
+        <div class="left-login">
+            <h1>Understand Market Trends With FinTrend</h1>
+            <img src="First page.png" class="left-login-img" alt="illustration" />
+        </div>
+
+        <div class="right-login">
+            <div class="card-login">
+                <h1>Let's analyze the article</h1>
+
+                <form id="analyze-form">
+                    <div class="textfield">
+                        <label for="inputText">Paste Link or Text</label>
+                        <textarea name="inputText" id="inputText" placeholder="Paste a news article or a link..."
+                            rows="5" required></textarea>
+                    </div>
+
+                    <button class="btn-login" type="submit">Analyze</button>
+                </form>
+
+                <div id="result" style="width: 100%; margin-top: 20px;">
+                    <div id="marketImpact" style="margin-top: 20px; font-size: 20px; font-weight: bold;"></div>
+                    <h3 style="color: white; margin-top: 20px;">Summary</h3>
+                    <ul id="summaryList" style="color:white; font-size: 14px;"></ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
