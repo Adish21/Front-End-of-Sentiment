@@ -2,6 +2,9 @@ const positiveWords = ["growth", "gain", "profit", "improve", "strong", "increas
 const negativeWords = ["loss", "decline", "drop", "weak", "fall", "crash"];
 const neutralWords = ["average", "stable", "unchanged", "moderate", "hold", "neutral"];
 
+// Flag to track if result has been shown
+let resultDisplayed = false;
+
 async function getH1FromURL(url) {
     try {
         const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
@@ -44,6 +47,9 @@ function basicSentiment(text) {
 document.getElementById("analyze-form").addEventListener("submit", async function (event) {
     event.preventDefault();
 
+    // 🚫 Stop if result already shown
+    if (resultDisplayed) return;
+
     let input = document.getElementById("inputText").value.trim();
     let content = input;
 
@@ -80,4 +86,11 @@ document.getElementById("analyze-form").addEventListener("submit", async functio
         li.textContent = point;
         summaryList.appendChild(li);
     });
+
+    // 🔒 Lock result after showing
+    resultDisplayed = true;
+    const button = document.querySelector(".btn-login");
+    button.disabled = true;
+    button.style.opacity = "0.5";
+    button.style.cursor = "not-allowed";
 });
